@@ -57,6 +57,7 @@ The AD8129 should provide much higher gains for more sensitive readings. However
 The gain of the differential amplifier is 1+(Rf/Rg). The default BOM uses 1k Ohm/100 Ohm, but you can vary this, or replace Rf with a potentiometer, such as digikey 987-1155-ND
 ####Voltage Regulator Load:
 the 5v to +-12v regulator needs a minimum load to work properly. I haven't needed them, but populating R1 and R2 with 2.4k ohm resistors should provide the required load. digikey RMCF0603FT2K40CT-ND
+
 ####For the basic build you probably want:
 
 Component | Description | Value | notes | Digikey | Price
@@ -68,7 +69,7 @@ JP1 | 2x6 .1" header | | connects to LA | S1012EC-40-ND	| 0.51
 JP2 | 1x3 .1" header | | connects ot power/ground | same as jp1 |
 JP3 | 1x6 .1" header | | connects ot DUT | same as jp1 |
 C1,C2,C3,C4,C5,C6,C7,C8 | 0603 SMT Capacitor | .1uF | | 587-1240-1-ND	| 0.10
-C11,C12,C13,C14,C15,C16 | 0603 SMT Capacitor | 10uF | doesn't need to be electrolytic | 587-3238-1-ND	| 0.54
+C11,C12,C13,C14,C15,C16 | 0805 SMT Capacitor | 10uF | doesn't need to be electrolytic | 587-1295-1-ND | 0.54
 R1,R2 | 0603 SMT resistor |  | leave empty unless needed to stabilize +-12v output |
 R3 | 0603 SMT resistor | 150 ohm | LED series resistor | RMCF0603FT150RCT-ND | 0.04
 R4 | 0603 SMT resistor | 10 ohm | provides a little isolation between digital and analog VCC | RMCF0603FT10R0CT-ND | 0.04
