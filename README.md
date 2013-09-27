@@ -79,7 +79,8 @@ Rv | 0603 SMT resistor | 1 ohm | shunt resistor - DUT power crosses over this | 
 Rg | 0603 SMT resistor | 100 ohm | gain resistor | RMCF0603FT100RCT-ND | 0.04
 Rf1 | 0603 SMT resistor | 1k ohm | gain resistor | RMCF0603FT1K00CT-ND | 0.04
 Rf | 84WR SMT Potentiometer |  | leave empty if using fixed Rf1 instead |
+LED | 0603 SMT LED | | | 475-2558-1-ND	| 0.09
 
 The Digikey BOM is saved in FitzSPA-BOM.csv, you can upload or paste it's contents into the BOM wizard: https://www.digikey.com/classic/registereduser/BOMWizard.aspx
 
-$20.15 + shipping
+$18.50 + shipping
