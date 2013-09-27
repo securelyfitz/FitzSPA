@@ -5,6 +5,8 @@ Joe Fitz's Simple Power Analysis Tool
 
 This is a simple board for monitoring power analysis of small microcontroller circuits.
 
+See the slides from BsidesPDX here: http://goo.gl/m2waMq
+
 ## Theory
 
 The current across the shunt resistor Rv is measured with a differential amplifier U2. The output is digitized by the A-D converter, U1, which is triggered and synchronized by the device's own clock signal. The JP1 pins connect to a logic analyzer for sampling.
