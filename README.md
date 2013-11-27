@@ -7,13 +7,18 @@ This is a simple board for monitoring power analysis of small microcontroller ci
 
 See the slides from BsidesPDX here: http://goo.gl/m2waMq
 
+## Changes
+The major change in 1.1 is that there is now a 2nd potentiometer tied to the offset input of the amplifier. This allows you to dial in an offset so you can adjust to a larger differential gain without exceeding the input range of the A/D converter.
+
+I thought i could get away without this in rev 1.0 but it has shown to be too important. Time will tell if a potentiometer is sufficient or i should have used a low impedance reference (at additional complexity, BOM cost, board space, and redesign time)
+
 ## Theory
 
 The current across the shunt resistor Rv is measured with a differential amplifier U2. The output is digitized by the A-D converter, U1, which is triggered and synchronized by the device's own clock signal. The JP1 pins connect to a logic analyzer for sampling.
 
 The differential amplifier will cancel out all sorts of common mode noise and only amplify the voltage across the Rv shunt resistor, which will be proportional to the instantaneous current draw of your target device. By synchronizing the A/D sampling to the device clock, we can get a digital readout at roughly the same time every clock cycle and not have to oversample 10x or more. Right now the Logic analyzer connection is asynchronous, but that should be fixed in future revisions.
 
-Future versions will integrate a Cypress EZ-usb FX2 logic analyzer and power regulation, but they were excluded to reduce time and complexity for revision 1.0
+Future versions will integrate a Cypress EZ-usb FX2 logic analyzer and power regulation, but they were excluded to reduce time and complexity for revision 1.x
 
 ##Using
 
@@ -51,7 +56,7 @@ To measure with a shunt on GND, power supplied by FitzSPA:
 Fire up your logic analyzer, turn on your board, and you should see the live power consumption updated each clock cycle!
 
 ##Building
-Rev 1.0 is functional but still has some kinks to be ironed out. There are a few options for building out your board:
+Rev 1.1 is functional and continues to iron out some kinks. There are a few options for building out your board:
 
 #### Differential Amplifier:
 The AD8129 should provide much higher gains for more sensitive readings. However, I still haven't debugged why the AD8130 works fine and the AD8129 does not at G=10. For the time being, use the x30 unless you want to help the debug effort. the x29 is digikey AD8129ARMZ-ND
@@ -79,6 +84,7 @@ Rv | 0603 SMT resistor | 1 ohm | shunt resistor - DUT power crosses over this | 
 Rg | 0603 SMT resistor | 100 ohm | gain resistor | RMCF0603FT100RCT-ND | 0.04
 Rf1 | 0603 SMT resistor | 1k ohm | gain resistor | RMCF0603FT1K00CT-ND | 0.04
 Rf | 84WR SMT Potentiometer |  | leave empty if using fixed Rf1 instead |
+Rf2 | 84WR SMT Potentiometer |  | potentiometer for adjusting offset bluewire pin 4 to ground if you really don't want this |
 LED | 0603 SMT LED | | | 475-2558-1-ND	| 0.09
 
 The Digikey BOM is saved in FitzSPA-BOM.csv, you can upload or paste it's contents into the BOM wizard: https://www.digikey.com/classic/registereduser/BOMWizard.aspx
